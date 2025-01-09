@@ -11,9 +11,6 @@ export const DashboardComponent = ({}: DashboardProps) =>
             <HeaderMenu />
         </Layout.Header>
         <Layout>
-            <Layout.Sider>
-                <h2>Menu</h2>
-            </Layout.Sider>
             <Layout.Content className={styles.content}>
                 <Routes>
                     {config().routes.map((route, index) => (
