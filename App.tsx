@@ -14,7 +14,7 @@ const App = () =>
         <Dashboard />
       </LoggedIn>
       <LoggedIn no>
-        <LoginForm appName="Admin" />
+        <LoginForm />
       </LoggedIn>
     </div>
   </BrowserRouter>
