@@ -1,14 +1,15 @@
 import { useSetting } from "@common/lib/setting/services";
-import { theme } from "@styles/theme";
 import { ConfigProvider } from "antd";
 import { BrowserRouter } from "react-router-dom";
 import { LoggedIn } from "../uac/components/LoggedIn";
 import { LoginForm } from "../uac/components/LoginForm";
 import styles from "./App.module.scss";
 import { Dashboard } from "./components/Dashboard";
+import { useTheme } from "@common/lib/useTheme";
 
 const App = () => {
   const title = useSetting("adminAppName");
+  const theme = useTheme();
 
   return <ConfigProvider theme={theme}>
     <BrowserRouter>
