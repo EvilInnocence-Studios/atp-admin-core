@@ -2,6 +2,7 @@ import { IModule } from "@core/lib/module";
 import { faDashboard } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { HomePage } from "./components/HomePage";
+import { layoutSettings } from "./lib/settings";
 
 export const module:IModule = {
     name: "admin",
@@ -16,5 +17,6 @@ export const module:IModule = {
         admin: [
             {path: "/", component: HomePage},
         ]
-    }
+    },
+    settings:layoutSettings,
 }
