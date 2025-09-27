@@ -1,7 +1,7 @@
 @use "@styles/globals.module.scss";
 
 .app {
-    background-color: globals.$brand-bg;
+    background-color: var(--bgColor);
     width: 100%;
     min-height: 100vh;
 }

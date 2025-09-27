@@ -3,6 +3,6 @@
 
 .dashboard {
     .content {
-        padding: globals.$padding-sm globals.$padding;
+        padding: var(--paddingSmall) var(--padding);
     }
 }
