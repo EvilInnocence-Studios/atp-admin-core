@@ -18,11 +18,11 @@ export const layoutSettings:ISettingContainer = {
                 defaultValue: true,
                 description: "Show a link to the brand's homepage in the header."
             },
-            "layout.header.showProductSearch": {
-                displayName: "Show Product Search",
+            "layout.header.showStoreMenu": {
+                displayName: "Show Store Menu",
                 type: "boolean",
                 defaultValue: true,
-                description: "Show the product search bar in the header."
+                description: "Show the store menu in the header."
             },
             "layout.header.showShopLink": {
                 displayName: "Show Shop Link",
