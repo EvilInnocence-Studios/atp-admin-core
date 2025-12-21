@@ -5,7 +5,7 @@ import { LoggedIn } from "../uac/components/LoggedIn";
 import { LoginForm } from "../uac/components/LoginForm";
 import styles from "./App.module.scss";
 import { Dashboard } from "./components/Dashboard";
-import { useTheme } from "@common/lib/useTheme";
+import { useTheme } from "@theming/lib/useTheme";
 
 const App = () => {
   const title = useSetting("adminAppName");
