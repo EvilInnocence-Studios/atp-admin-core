@@ -25,7 +25,12 @@ export const HomePageComponent = ({ dates, setDates }: HomePageProps) => {
                     className={styles.chart}
                     options={{ dimension: 'day', ...dateRange }}
                     label="Daily Visitors"
-                    renderTick={(date: string | number | Date) => new Date(date).toLocaleDateString()}
+                    renderTick={(date: string | number | Date) => {
+                        const day = date.toString().substring(8, 10);
+                        const month = date.toString().substring(5, 7);
+                        const year = date.toString().substring(0, 4);
+                        return `${months[parseInt(month) - 1]} ${day}, ${year}`;
+                    }}
                 />
             </Col>
             <Col xs={24} lg={12}>
@@ -33,7 +38,12 @@ export const HomePageComponent = ({ dates, setDates }: HomePageProps) => {
                     className={styles.chart}
                     options={{ dimension: 'week', ...dateRange }}
                     label="Weekly Visitors"
-                    renderTick={(date: string | number | Date) => new Date(date).toLocaleDateString()}
+                    renderTick={(date: string | number | Date) => {
+                        const day = date.toString().substring(8, 10);
+                        const month = date.toString().substring(5, 7);
+                        const year = date.toString().substring(0, 4);
+                        return `${months[parseInt(month) - 1]} ${day}, ${year}`;
+                    }}
                 />
             </Col>
             <Col xs={24} lg={12}>
@@ -42,9 +52,9 @@ export const HomePageComponent = ({ dates, setDates }: HomePageProps) => {
                     options={{ dimension: 'month', ...dateRange }}
                     label="Monthly Visitors"
                     renderTick={(date: string | number | Date) => {
-                        const month = new Date(date).getMonth();
-                        const year = new Date(date).getFullYear();
-                        return `${months[month]}, ${year}`;
+                        const month = date.toString().substring(5, 7);
+                        const year = date.toString().substring(0, 4);
+                        return `${months[parseInt(month) - 1]} ${year}`;
                     }}
                 />
             </Col>
