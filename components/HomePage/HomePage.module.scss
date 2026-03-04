@@ -1,1 +1,9 @@
 @use "@styles/globals.module.scss";
+
+.homePage {
+    .chart {
+        background-color: var(--bgLightColor);
+        padding: var(--padding);
+        padding-top: var(--paddingSmall);
+    }
+}
