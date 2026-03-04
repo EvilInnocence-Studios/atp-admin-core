@@ -5,6 +5,10 @@ import { Col, DatePicker, Row, Typography } from "antd";
 import { HomePageProps } from "./HomePage.d";
 // import styles from './HomePage.module.scss';
 
+const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const timeOfDay = ["12am", "1am", "2am", "3am", "4am", "5am", "6am", "7am", "8am", "9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm", "9pm", "10pm", "11pm"];
+
 export const HomePageComponent = ({ dates, setDates }: HomePageProps) => {
     const dateRange = dates ? { startDate: dates[0], endDate: dates[1] } : {};
 
@@ -16,11 +20,45 @@ export const HomePageComponent = ({ dates, setDates }: HomePageProps) => {
             />
         </div>
         <Row gutter={[24, 24]}>
-            <Col xs={24} lg={12}><LineChart options={{ dimension: 'day', ...dateRange }} label="Daily Visitors" /></Col>
-            <Col xs={24} lg={12}><LineChart options={{ dimension: 'week', ...dateRange }} label="Weekly Visitors" /></Col>
-            <Col xs={24} lg={12}><LineChart options={{ dimension: 'month', ...dateRange }} label="Monthly Visitors" /></Col>
-            <Col xs={24} lg={12}><LineChart options={{ dimension: 'dayOfWeek', ...dateRange }} label="Day of Week Visitors" /></Col>
-            <Col xs={24} lg={12}><LineChart options={{ dimension: 'timeOfDay', ...dateRange }} label="Time of Day Visitors" /></Col>
+            <Col xs={24} lg={12}>
+                <LineChart
+                    options={{ dimension: 'day', ...dateRange }}
+                    label="Daily Visitors"
+                    renderTick={(date: string | number | Date) => new Date(date).toLocaleDateString()}
+                />
+            </Col>
+            <Col xs={24} lg={12}>
+                <LineChart
+                    options={{ dimension: 'week', ...dateRange }}
+                    label="Weekly Visitors"
+                    renderTick={(date: string | number | Date) => new Date(date).toLocaleDateString()}
+                />
+            </Col>
+            <Col xs={24} lg={12}>
+                <LineChart
+                    options={{ dimension: 'month', ...dateRange }}
+                    label="Monthly Visitors"
+                    renderTick={(date: string | number | Date) => {
+                        const month = new Date(date).getMonth();
+                        const year = new Date(date).getFullYear();
+                        return `${months[month]}, ${year}`;
+                    }}
+                />
+            </Col>
+            <Col xs={24} lg={12}>
+                <LineChart
+                    options={{ dimension: 'dayOfWeek', ...dateRange }}
+                    label="Day of Week Visitors"
+                    renderTick={(date: string | number | Date) => days[date as number]}
+                />
+            </Col>
+            <Col xs={24} lg={12}>
+                <LineChart
+                    options={{ dimension: 'timeOfDay', ...dateRange }}
+                    label="Time of Day Visitors"
+                    renderTick={(date: string | number | Date) => timeOfDay[date as number]}
+                />
+            </Col>
             <Col xs={24} lg={12}><BarChart options={{ dimension: 'country', ...dateRange }} label="Country Visitors" /></Col>
             <Col xs={24} lg={12}><BarChart options={{ dimension: 'page', ...dateRange }} label="Page Visitors" /></Col>
             <Col xs={24} lg={12}><BarChart options={{ dimension: 'referrer', ...dateRange }} label="Referrer Visitors" /></Col>
