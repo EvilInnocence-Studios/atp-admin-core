@@ -4,8 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { HomePage } from "./components/HomePage";
 import { layoutSettings } from "./lib/settings";
 
-export { adminPlugins } from "./components/HomePage/Homepage.util";
-
 export const module:IModule = {
     name: "admin",
     menus: {
